@@ -39,8 +39,15 @@
     </nav>
     <main class="flex-1 flex flex-col items-center justify-center py-12">
         <h1 class="text-3xl md:text-4xl font-bold mb-8 text-gray-800 text-center">Redesign Aplikasi Bank BKC</h1>
-        <!-- Admin Section -->
-        <div class="w-full max-w-5xl px-4 mb-16">
+        <!-- Category Filter -->
+        <div class="flex justify-center mb-8 w-full">
+            <div class="inline-flex rounded-lg border border-gray-200 overflow-hidden text-sm sm:text-base">
+                <button class="category-btn px-4 py-2 font-medium active" data-category="mockup">MOCKUP</button>
+                <button class="category-btn px-4 py-2 font-medium" data-category="wireframe">WIREFRAME</button>
+            </div>
+        </div>
+        <!-- Admin Section (MOCKUP) -->
+        <div class="w-full max-w-5xl px-4 mb-16 category-section" data-category="mockup">
             <h2 class="text-2xl font-bold text-indigo-700 mb-6">Admin</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 <!-- Admin Card 1 -->
@@ -60,13 +67,13 @@
                     </div>
                 </div>
                 <!-- Admin Card 3 -->
-                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                <!-- <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
                     <img src="imgs/MOCKUP ADMIN/Pop Up Tambah Data Pembayaran 2.png" alt="Tambah Data Pembayaran" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/MOCKUP ADMIN/Pop Up Tambah Data Pembayaran 2.png" style="cursor:pointer;">
                     <div class="card-text p-8 flex flex-col items-center w-full">
                         <h2 class="text-xl font-semibold mb-2 text-gray-800">Tambah Data Pembayaran</h2>
                         <p class="text-gray-500 text-center">Pop up untuk menambah data pembayaran nasabah.</p>
                     </div>
-                </div>
+                </div> -->
                 <!-- Admin Card 4 -->
                 <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
                     <img src="imgs/MOCKUP ADMIN/Pop Up BI Check.png" alt="Pop Up BI Check" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/MOCKUP ADMIN/Pop Up BI Check.png" style="cursor:pointer;">
@@ -93,9 +100,39 @@
                 </div>
             </div>
         </div>
+        <!-- Admin Section (WIREFRAME) -->
+        <div class="w-full max-w-5xl px-4 mb-16 category-section" data-category="wireframe" style="display: none;">
+            <h2 class="text-2xl font-bold text-indigo-700 mb-6">Admin</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <!-- Wireframe Admin Card 1 -->
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/wireframe admin/Pengajuan Pinjaman.png" alt="Wireframe Pengajuan Pinjaman" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/wireframe admin/Pengajuan Pinjaman.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">Wireframe Pengajuan Pinjaman</h2>
+                        <p class="text-gray-500 text-center">Tampilan wireframe pengajuan pinjaman oleh admin.</p>
+                    </div>
+                </div>
+                <!-- Wireframe Admin Card 2 -->
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/wireframe admin/Detail Cust Wireframe.png" alt="Wireframe Detail Customer" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/wireframe admin/Detail Cust Wireframe.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">Wireframe Detail Customer</h2>
+                        <p class="text-gray-500 text-center">Wireframe halaman detail customer untuk admin.</p>
+                    </div>
+                </div>
+                <!-- Wireframe Admin Card 3 -->
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/wireframe admin/Loan-Approved-Wireframe.png" alt="Wireframe Loan Approved" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/wireframe admin/Loan-Approved-Wireframe.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">Wireframe Loan Approved</h2>
+                        <p class="text-gray-500 text-center">Wireframe tampilan persetujuan pinjaman oleh admin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Customer Section -->
-        <h2 class="text-2xl font-bold text-pink-700 mb-6 w-full max-w-5xl px-4">Customer</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl px-4">
+        <h2 class="text-2xl font-bold text-pink-700 mb-6 w-full max-w-5xl px-4 category-section" data-category="mockup">Customer</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl px-4 category-section" data-category="mockup">
             <!-- Card 1 -->
             <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
                 <img src="imgs/MOCKUP BKC CUST/Login.png" alt="Login" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/MOCKUP BKC CUST/Login.png" style="cursor:pointer;">
@@ -217,6 +254,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Wide Banner Link to Official BKC Website -->
         <div class="w-full flex justify-center mt-12 px-4">
             <a href="https://bkc.infy.uk/" target="_blank" rel="noopener" class="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl bg-gradient-to-r from-indigo-700 to-pink-700 rounded-2xl shadow-lg border-4 border-indigo-400 hover:border-pink-400 p-6 md:p-10 transition group cursor-pointer overflow-hidden" style="text-decoration:none;">
@@ -239,6 +277,31 @@
         basicLightbox.create(`<img src='${this.dataset.src}' style='max-width:90vw;max-height:90vh;border-radius:1rem;'>`).show();
       });
     });
+        // Category filter for mockup/wireframe
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const categorySections = document.querySelectorAll('.category-section');
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const category = button.getAttribute('data-category');
+                categorySections.forEach(section => {
+                    if (category === 'wireframe') {
+                        if (section.getAttribute('data-category') === 'wireframe') {
+                            section.style.display = '';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    } else {
+                        if (section.getAttribute('data-category') === category) {
+                            section.style.display = '';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
