@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<he flex items-centerad>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My Portfolio | Web Developer & UI/UX Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      
+        .group:hover .nav-link::after {
+            width: 100%;
+        }
+  :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f43f5e;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--dark);
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+        
+        .nav-link:hover::after {
+            width: calc(100% - 1.5rem);
+        }
+        
+        .active::after {
+            width: calc(100% - 1.5rem);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .category-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn.active {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .skill-badge {
+            background-color: rgba(99, 102, 241, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            background-color: rgba(99, 102, 241, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .contact-input {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold gradient-text">Portfolio</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#home" class="nav-link text-gray-800 hover:text-indigo-600 font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:bg-indigo-50 active">Home</a>
+                        <a href="#about" class="nav-link text-gray-800 hover:text-indigo-600 font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:bg-indigo-50">About</a>
+                        <div class="relative group">
+                            <button class="nav-link text-gray-800 hover:text-indigo-600 font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:bg-indigo-50 flex items-center">
+                                Services <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 -translate-y-1">
+                                <a href="#web-dev" class="block px-4 py-3 text-gray-800 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors duration-300">Web Development</a>
+                                <a href="#ui-ux" class="block px-4 py-3 text-gray-800 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors duration-300">UI/UX Design</a>
+                            </div>
+                        </div>
+                        <a href="#work" class="nav-link text-gray-800 hover:text-indigo-600 font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:bg-indigo-50">Portfolio</a>
+                        <a href="#contact" class="nav-link text-gray-800 hover:text-indigo-600 font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:bg-indigo-50">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-indigo-600 focus:outline-none p-2 rounded-lg hover:bg-indigo-50 transition-colors duration-300">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-lg shadow-lg border-t border-gray-100 w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#home" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-indigo-50 transition-colors duration-300">Home</a>
+                <a href="#about" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-indigo-50 transition-colors duration-300">About</a>
+                <div class="pl-4 space-y-1">
+                    <a href="#web-dev" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-indigo-50 transition-colors duration-300">Web Development</a>
+                    <a href="#ui-ux" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-indigo-50 transition-colors duration-300">UI/Design</a>
+                </div>
+                <a href="#work" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-indigo-50 transition-colors duration-300">Portfolio</a>
+                <a href="#contact" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-indigo-50 transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-20 pb-12 md:pt-32 md:pb-24 bg-gradient-to-r from-indigo-50 to-pink-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                        Hi, I'm <span class="gradient-text">John Doe</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-medium mb-6 text-gray-700">
+                        <span class="inline-block mr-2">I'm a</span>
+                        <span class="gradient-text font-bold" id="typing-text"></span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                        I create beautiful, functional websites and user experiences that help businesses grow and engage their audience.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#work" class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-medium rounded-lg hover:from-indigo-600 hover:to-pink-600 transition duration-300 shadow-lg">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="px-6 py-3 border-2 border-indigo-500 text-indigo-500 font-medium rounded-lg hover:bg-indigo-50 transition duration-300">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 bg-gradient-to-r from-indigo-400 to-pink-400 rounded-full blur-xl opacity-30"></div>
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                             alt="Profile" 
+                             class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">About <span class="gradient-text">Me</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="relative w-48 h-48 sm:w-64 sm:h-64">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-indigo-400 to-pink-400 rounded-lg blur opacity-75"></div>
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                             alt="About Me" 
+                             class="relative w-full h-full object-cover rounded-lg shadow-lg">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Who am I?</h3>
+                    <p class="text-gray-600 mb-6">
+                        I'm a passionate Web Developer and UI/UX Designer with over 5 years of experience creating digital products that are both beautiful and functional. I specialize in creating responsive websites, web applications, and designing intuitive user interfaces.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        My approach combines technical expertise with creative design thinking to deliver solutions that not only look great but also provide seamless user experiences. I believe in the power of design to solve problems and create meaningful connections between businesses and their customers.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <div class="mr-3 text-indigo-500">
+                                <i class="fas fa-user-tie text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Name</h4>
+                                <p class="text-gray-600">John Doe</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="mr-3 text-indigo-500">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Email</h4>
+                                <p class="text-gray-600">john@example.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="mr-3 text-indigo-500">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Phone</h4>
+                                <p class="text-gray-600">+123 456 7890</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="mr-3 text-indigo-500">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Location</h4>
+                                <p class="text-gray-600">New York, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#" class="inline-flex items-center px-6 py-3 bg-indigo-500 text-white font-medium rounded-lg hover:bg-indigo-600 transition duration-300 shadow-lg">
+                            Download CV
+                            <i class="fas fa-download ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">My <span class="gradient-text">Skills</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                <!-- Web Development Skills -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="mr-4 bg-indigo-100 p-3 rounded-full">
+                            <i class="fas fa-code text-indigo-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Web Development</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">HTML/CSS</span>
+                                <span class="text-sm font-medium text-gray-500">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-indigo-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">JavaScript</span>
+                                <span class="text-sm font-medium text-gray-500">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-indigo-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">React</span>
+                                <span class="text-sm font-medium text-gray-500">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-indigo-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Node.js</span>
+                                <span class="text-sm font-medium text-gray-500">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-indigo-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- UI/UX Design Skills -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="mr-4 bg-pink-100 p-3 rounded-full">
+                            <i class="fas fa-paint-brush text-pink-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">UI/UX Design</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">User Research</span>
+                                <span class="text-sm font-medium text-gray-500">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-pink-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Wireframing</span>
+                                <span class="text-sm font-medium text-gray-500">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-pink-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Prototyping</span>
+                                <span class="text-sm font-medium text-gray-500">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-pink-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Figma</span>
+                                <span class="text-sm font-medium text-gray-500">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-pink-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12">
+                <h3 class="text-xl font-semibold text-center text-gray-800 mb-6">Other Skills</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="skill-badge px-4 py-2 rounded-full text-indigo-600 font-medium">Responsive Design</span>
+                    <span class="skill-badge px-4 py-2 rounded-full text-indigo-600 font-medium">SEO</span>
+                    <span class="skill-badge px-4 py-2 rounded-full text-indigo-600 font-medium">Git</span>
+                    <span class="skill-badge px-4 py-2 rounded-full text-indigo-600 font-medium">REST APIs</span>
+                    <span class="skill-badge px-4 py-2 rounded-full text-indigo-600 font-medium">MongoDB</span>
+                    <span class="skill-badge px-4 py-2 rounded-full text-indigo-600 font-medium">Adobe XD</span>
+                    <span class="skill-badge px-4 py-2 rounded-full text-indigo-600 font-medium">Sketch</span>
+                    <span class="skill-badge px-4 py-2 rounded-full text-indigo-600 font-medium">User Testing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">My <span class="gradient-text">Work</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Here are some of my recent projects. I've worked on a variety of web development and UI/UX design projects.
+                </p>
+            </div>
+            
+            <!-- Category Filter -->
+            <div class="flex justify-center mb-8 sm:mb-12">
+                <div class="inline-flex rounded-lg border border-gray-200 overflow-hidden text-sm sm:text-base">
+                    <button class="category-btn px-3 sm:px-6 py-1 sm:py-2 font-medium active" data-category="all">All</button>
+                    <button class="category-btn px-3 sm:px-6 py-1 sm:py-2 font-medium" data-category="web">Web Dev</button>
+                    <button class="category-btn px-3 sm:px-6 py-1 sm:py-2 font-medium" data-category="ui">UI/UX</button>
+                </div>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Web Development Projects -->
+                <a href="web_dev.html" class="project-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 block" data-category="web" style="text-decoration: none;">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="E-commerce Website" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-4">
+                            <span class="inline-block px-3 py-1 bg-indigo-500 text-white text-xs font-medium rounded-full">Web Development</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">E-commerce Website</h3>
+                        <p class="text-gray-600 mb-4">A fully responsive e-commerce platform built with React, Node.js, and MongoDB.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-indigo-100 text-indigo-800 rounded">React</span>
+                            <span class="text-xs px-2 py-1 bg-indigo-100 text-indigo-800 rounded">Node.js</span>
+                            <span class="text-xs px-2 py-1 bg-indigo-100 text-indigo-800 rounded">MongoDB</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-100" data-category="web">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                             alt="Task Management App" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-4">
+                            <span class="inline-block px-3 py-1 bg-indigo-500 text-white text-xs font-medium rounded-full">Web Development</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Task Management App</h3>
+                        <p class="text-gray-600 mb-4">A productivity application for managing tasks with drag-and-drop functionality.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-indigo-100 text-indigo-800 rounded">Vue.js</span>
+                            <span class="text-xs px-2 py-1 bg-indigo-100 text-indigo-800 rounded">Firebase</span>
+                            <span class="text-xs px-2 py-1 bg-indigo-100 text-indigo-800 rounded">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- UI/UX Design Projects -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-100" data-category="ui">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Fitness App Design" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-4">
+                            <span class="inline-block px-3 py-1 bg-pink-500 text-white text-xs font-medium rounded-full">UI/UX Design</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Fitness App Design</h3>
+                        <p class="text-gray-600 mb-4">A modern fitness app design focused on user engagement and intuitive navigation.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-pink-100 text-pink-800 rounded">Figma</span>
+                            <span class="text-xs px-2 py-1 bg-pink-100 text-pink-800 rounded">Adobe XD</span>
+                            <span class="text-xs px-2 py-1 bg-pink-100 text-pink-800 rounded">User Research</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Get in <span class="gradient-text">Touch</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Feel free to reach out for collaborations or just a friendly hello!
+                </p>
+            </div>
+            <form class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6" id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required class="contact-input px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <input type="email" name="email" placeholder="Your Email" required class="contact-input px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <textarea name="message" rows="5" placeholder="Your Message" required class="contact-input px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 md:col-span-2"></textarea>
+                <button type="submit" class="md:col-span-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-medium rounded-lg hover:from-indigo-600 hover:to-pink-600 transition duration-300 shadow-lg">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Typing effect for hero section
+        const typingText = document.getElementById('typing-text');
+        const phrases = ['Web Developer', 'UI/UX Designer', 'Freelancer', 'Tech Enthusiast'];
+        let phraseIndex = 0;
+        let letterIndex = 0;
+        let currentPhrase = '';
+        let isDeleting = false;
+        let typingSpeed = 150;
+
+        function type() {
+            if (phraseIndex >= phrases.length) {
+                phraseIndex = 0;
+            }
+            currentPhrase = phrases[phraseIndex];
+            if (!isDeleting) {
+                typingText.textContent = currentPhrase.substring(0, letterIndex + 1);
+                letterIndex++;
+                if (letterIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    typingSpeed = 1000;
+                } else {
+                    typingSpeed = 150;
+                }
+            } else {
+                typingText.textContent = currentPhrase.substring(0, letterIndex - 1);
+                letterIndex--;
+                if (letterIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex++;
+                    typingSpeed = 500;
+                } else {
+                    typingSpeed = 100;
+                }
+            }
+            setTimeout(type, typingSpeed);
+        }
+        type();
+
+        // Category filter for projects
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const category = button.getAttribute('data-category');
+                projectCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Contact form submission (dummy)
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>

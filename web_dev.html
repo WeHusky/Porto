@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pariwisata Yogyakarta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/basiclightbox/dist/basicLightbox.min.css">
+    <style>
+        .card-img {
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+        }
+        .card-text {
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), font-size 0.4s cubic-bezier(0.4,0,0.2,1);
+        }
+        .card:hover .card-img {
+            transform: scale(1.15);
+        }
+        .card:hover .card-text {
+            transform: translateY(30px) scale(0.92);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-50 to-pink-50 flex flex-col">
+    <nav class="w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <span class="text-2xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent">Pariwisata Yogyakarta</span>
+            <a href="index.html" class="text-indigo-500 hover:text-pink-500 font-medium transition">&larr; Kembali ke Portfolio</a>
+        </div>
+    </nav>
+    <main class="flex-1 flex flex-col items-center justify-center py-12">
+        <h1 class="text-3xl md:text-4xl font-bold mb-8 text-gray-800 text-center">Jelajahi Pesona Wisata Yogyakarta</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl px-4">
+            <!-- Ragam Wisata Alam -->
+            <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                <img src="imgs/BSOD.png" alt="Wisata Alam" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/BSOD.png" style="cursor:pointer;">
+                <div class="card-text p-8 flex flex-col items-center w-full">
+                    <h2 class="text-xl font-semibold mb-2 text-gray-800">Wisata Alam</h2>
+                    <p class="text-gray-500 text-center">Nikmati keindahan alam Yogyakarta: pantai, gunung, goa, dan air terjun.</p>
+                </div>
+            </div>
+            <!-- Ragam Wisata Budaya -->
+            <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                <img src="imgs/BSOD.png" alt="Wisata Budaya" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/BSOD.png" style="cursor:pointer;">
+                <div class="card-text p-8 flex flex-col items-center w-full">
+                    <h2 class="text-xl font-semibold mb-2 text-gray-800">Wisata Budaya</h2>
+                    <p class="text-gray-500 text-center">Jelajahi candi, keraton, museum, dan tradisi budaya khas Jogja.</p>
+                </div>
+            </div>
+            <!-- Ragam Wisata Keagamaan -->
+            <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                <img src="imgs/BSOD.png" alt="Wisata Keagamaan" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/BSOD.png" style="cursor:pointer;">
+                <div class="card-text p-8 flex flex-col items-center w-full">
+                    <h2 class="text-xl font-semibold mb-2 text-gray-800">Wisata Keagamaan</h2>
+                    <p class="text-gray-500 text-center">Kunjungi tempat ibadah bersejarah dan wisata religi di Yogyakarta.</p>
+                </div>
+            </div>
+            <!-- Ragam Wisata Kuliner -->
+            <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                <img src="imgs/BSOD.png" alt="Wisata Kuliner" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/BSOD.png" style="cursor:pointer;">
+                <div class="card-text p-8 flex flex-col items-center w-full">
+                    <h2 class="text-xl font-semibold mb-2 text-gray-800">Wisata Kuliner</h2>
+                    <p class="text-gray-500 text-center">Cicipi aneka kuliner khas Jogja yang lezat dan legendaris.</p>
+                </div>
+            </div>
+            <!-- List Penginapan Terbaik -->
+            <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                <img src="imgs/BSOD.png" alt="Penginapan Terbaik" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/BSOD.png" style="cursor:pointer;">
+                <div class="card-text p-8 flex flex-col items-center w-full">
+                    <h2 class="text-xl font-semibold mb-2 text-gray-800">Penginapan Terbaik</h2>
+                    <p class="text-gray-500 text-center">Temukan rekomendasi hotel, villa, dan homestay terbaik di Yogyakarta.</p>
+                </div>
+            </div>
+            <!-- Pemesanan Penginapan -->
+            <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                <img src="imgs/BSOD.png" alt="Pemesanan" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/BSOD.png" style="cursor:pointer;">
+                <div class="card-text p-8 flex flex-col items-center w-full">
+                    <h2 class="text-xl font-semibold mb-2 text-gray-800">Pemesanan</h2>
+                    <p class="text-gray-500 text-center">Pesan penginapan favorit Anda dengan mudah dan cepat.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="w-full py-6 text-center text-gray-400 text-sm mt-8">&copy; 2024 Pariwisata Yogyakarta</footer>
+    <script src="https://unpkg.com/basiclightbox/dist/basicLightbox.min.js"></script>
+    <script>
+    document.querySelectorAll('.popup-img').forEach(img => {
+      img.addEventListener('click', function() {
+        basicLightbox.create(`<img src='${this.dataset.src}' style='max-width:90vw;max-height:90vh;border-radius:1rem;'>`).show();
+      });
+    });
+    </script>
+</body>
+</html>
