@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pariwisata Yogyakarta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/basiclightbox/dist/basicLightbox.min.css">
+    <style>
+        .card-img {
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+            height: 340px !important;
+            max-height: 340px;
+            min-height: 340px;
+        }
+        .card-text {
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), font-size 0.4s cubic-bezier(0.4,0,0.2,1);
+            min-height: 120px;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+        .card:hover .card-img {
+            transform: scale(1.15);
+        }
+        .card:hover .card-text {
+            transform: translateY(30px) scale(0.92);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .category-button {
+            transition: background-color 0.3s ease;
+        }
+        .category-button:hover {
+            background-color: #e2e8f0; /* Light gray on hover */
+        }
+        .category-button.active {
+            background-color: #cbd5e1; /* Darker gray for active state */
+        }
+        
+        .category-btn {
+            transition: all 0.3s ease;
+            background-color: #f8fafc;
+            color: #64748b;
+        }
+        
+        .category-btn:hover {
+            background-color: #e2e8f0;
+            color: #475569;
+        }
+        
+        .category-btn.active {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .category-section {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .category-section[style*="display: none"] {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .category-section:not([style*="display: none"]) {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-50 to-pink-50 flex flex-col">
+    <nav class="w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <span class="text-2xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent">Laundry UI</span>
+            <a href="index.html" class="text-indigo-500 hover:text-pink-500 font-medium transition">&larr; Kembali ke Portfolio</a>
+        </div>
+    </nav>
+    <main class="flex-1 flex flex-col items-center justify-center py-12">
+        <h1 class="text-3xl md:text-4xl font-bold mb-8 text-gray-800 text-center">UI Aplikasi Laundry</h1>
+        <!-- Category Filter -->
+        <div class="flex justify-center mb-8 w-full">
+            <div class="inline-flex rounded-lg border border-gray-200 overflow-hidden text-sm sm:text-base">
+                <button class="category-btn px-4 py-2 font-medium active" data-category="mockup">MOCKUP</button>
+                <button class="category-btn px-4 py-2 font-medium" data-category="wireframe">WIREFRAME</button>
+            </div>
+        </div>
+        <!-- Admin Section (MOCKUP) -->
+        <div class="w-full max-w-5xl px-4 mb-16 category-section" data-category="mockup">
+            <h2 class="text-2xl font-bold text-indigo-700 mb-6">Admin</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/Bank BCA.png" alt="UIUX Laundry 1" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/Bank BCA.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 1</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/Bank Dropdown.png" alt="UIUX Laundry 2" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/Bank Dropdown.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 2</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/BCA-process.png" alt="UIUX Laundry 3" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/BCA-process.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 3</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/CEAK STRUK.png" alt="UIUX Laundry 4" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/CEAK STRUK.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 4</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/Done Payment QRIS.png" alt="UIUX Laundry 5" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/Done Payment QRIS.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 5</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/Done Payment.png" alt="UIUX Laundry 6" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/Done Payment.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 6</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/INPUT ORDER-1.png" alt="UIUX Laundry 7" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/INPUT ORDER-1.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 7</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/INPUT ORDER-2.png" alt="UIUX Laundry 8" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/INPUT ORDER-2.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 8</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/INPUT ORDER-3.png" alt="UIUX Laundry 9" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/INPUT ORDER-3.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 9</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/INPUT ORDER-4.png" alt="UIUX Laundry 10" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/INPUT ORDER-4.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 10</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/KONFIRMASI+CETAK STRUK.png" alt="UIUX Laundry 11" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/KONFIRMASI+CETAK STRUK.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 11</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/LAPORAN.png" alt="UIUX Laundry 12" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/LAPORAN.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 12</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/MacBook Pro 16_ LOGIN.png" alt="UIUX Laundry 13" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/MacBook Pro 16_ LOGIN.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 13</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/MacBook Pro 16_ REGISTER.png" alt="UIUX Laundry 14" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/MacBook Pro 16_ REGISTER.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 14</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/MAIN-ALTERNATIF.png" alt="UIUX Laundry 15" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/MAIN-ALTERNATIF.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 15</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/Payment.png" alt="UIUX Laundry 16" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/Payment.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 16</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/QRIS-Payment.png" alt="UIUX Laundry 17" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/QRIS-Payment.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 17</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/QRIS-process.png" alt="UIUX Laundry 18" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/QRIS-process.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 18</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/QRIS.png" alt="UIUX Laundry 19" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/QRIS.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 19</h2>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer overflow-hidden">
+                    <img src="imgs/UIUX RKPL/STOK.png" alt="UIUX Laundry 20" class="card-img w-full h-48 object-cover object-center rounded-t-2xl popup-img" data-src="imgs/UIUX RKPL/STOK.png" style="cursor:pointer;">
+                    <div class="card-text p-8 flex flex-col items-center w-full">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-800">UIUX Laundry 20</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </main>
+    <script src="https://unpkg.com/basiclightbox/dist/basicLightbox.min.js"></script>
+    <script>
+    document.querySelectorAll('.popup-img').forEach(img => {
+      img.addEventListener('click', function() {
+        basicLightbox.create(`<img src='${this.dataset.src}' style='max-width:90vw;max-height:90vh;border-radius:1rem;'>`).show();
+      });
+    });
+        // Category filter for mockup/wireframe
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const categorySections = document.querySelectorAll('.category-section');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.getAttribute('data-category');
+                
+                // Show/hide sections based on category with smooth animation
+                categorySections.forEach(section => {
+                    const sectionCategory = section.getAttribute('data-category');
+                    
+                    if (category === 'all' || sectionCategory === category) {
+                        // Show section with animation
+                        section.style.opacity = '0';
+                        section.style.transform = 'translateY(20px)';
+                        section.style.display = 'block';
+                        
+                        // Trigger animation after a small delay
+                        setTimeout(() => {
+                            section.style.opacity = '1';
+                            section.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        // Hide section with animation
+                        section.style.opacity = '0';
+                        section.style.transform = 'translateY(20px)';
+                        
+                        // Hide after animation completes
+                        setTimeout(() => {
+                            section.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Initialize page - show mockup sections by default
+        document.addEventListener('DOMContentLoaded', function() {
+            const mockupSections = document.querySelectorAll('.category-section[data-category="mockup"]');
+            mockupSections.forEach(section => {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
