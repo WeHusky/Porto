@@ -6,6 +6,9 @@
     <title>My Portfolio | Web Developer & UI/UX Designer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tambahkan Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
     <style>
       
         .group:hover .nav-link::after {
@@ -24,6 +27,9 @@
             background-color: #f1f5f9;
             color: var(--dark);
             scroll-behavior: smooth;
+        }
+        h1, h2, h3, .font-bold, .font-semibold {
+            font-family: 'Poppins', 'Inter', sans-serif;
         }
         
         .gradient-text {
@@ -642,6 +648,35 @@
                         </a>
                         <a href="#" class="text-gray-600 hover:text-gray-800 flex items-center" onclick="event.stopPropagation()">
                             <i class="fab fa-github mr-2"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Web Development Project 4: Rumah Lasagna -->
+            <div class="project-card web bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 card-hover cursor-pointer" data-category="web" onclick="window.location.href='https://rumahlasagna.vercel.app'">
+                <div class="relative overflow-hidden h-64 rounded-t-xl">
+                    <img src="imgs/umkm.png" 
+                         alt="Rumah Lasagna" 
+                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">Web Development</span>
+                            <h3 class="text-white text-xl font-semibold mt-2">Rumah Lasagna</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-4">
+                        Tampilan menu untuk produk dari Rumah Lasagna, untuk membantu UMKM asal Cirebon.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">HTML</span>
+                        <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">TailwindCSS</span>
+                        <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Responsive</span>
+                    </div>
+                    <div class="mt-4 flex justify-between items-center">
+                        <a href="https://rumahlasagna.vercel.app" class="text-blue-500 hover:text-blue-600 flex items-center" onclick="event.stopPropagation()" target="_blank" rel="noopener">
+                            <i class="fas fa-external-link-alt mr-2"></i> View Details
                         </a>
                     </div>
                 </div>
