@@ -28,6 +28,46 @@
         html {
             scroll-behavior: smooth;
         }
+        .category-button {
+            transition: background-color 0.3s ease;
+        }
+        .category-button:hover {
+            background-color: #e2e8f0; /* Light gray on hover */
+        }
+        .category-button.active {
+            background-color: #cbd5e1; /* Darker gray for active state */
+        }
+        
+        .category-btn {
+            transition: all 0.3s ease;
+            background-color: #f8fafc;
+            color: #64748b;
+        }
+        
+        .category-btn:hover {
+            background-color: #e2e8f0;
+            color: #475569;
+        }
+        
+        .category-btn.active {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .category-section {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .category-section[style*="display: none"] {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .category-section:not([style*="display: none"]) {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-indigo-50 to-pink-50 flex flex-col">
@@ -269,7 +309,6 @@
             </a>
         </div>
     </main>
-    <footer class="w-full py-6 text-center text-gray-400 text-sm mt-8">&copy; 2024 Pariwisata Yogyakarta</footer>
     <script src="https://unpkg.com/basiclightbox/dist/basicLightbox.min.js"></script>
     <script>
     document.querySelectorAll('.popup-img').forEach(img => {
@@ -280,26 +319,52 @@
         // Category filter for mockup/wireframe
         const categoryButtons = document.querySelectorAll('.category-btn');
         const categorySections = document.querySelectorAll('.category-section');
+        
         categoryButtons.forEach(button => {
             button.addEventListener('click', () => {
+                // Remove active class from all buttons
                 categoryButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
                 button.classList.add('active');
+                
                 const category = button.getAttribute('data-category');
+                
+                // Show/hide sections based on category with smooth animation
                 categorySections.forEach(section => {
-                    if (category === 'wireframe') {
-                        if (section.getAttribute('data-category') === 'wireframe') {
-                            section.style.display = '';
-                        } else {
-                            section.style.display = 'none';
-                        }
+                    const sectionCategory = section.getAttribute('data-category');
+                    
+                    if (category === 'all' || sectionCategory === category) {
+                        // Show section with animation
+                        section.style.opacity = '0';
+                        section.style.transform = 'translateY(20px)';
+                        section.style.display = 'block';
+                        
+                        // Trigger animation after a small delay
+                        setTimeout(() => {
+                            section.style.opacity = '1';
+                            section.style.transform = 'translateY(0)';
+                        }, 50);
                     } else {
-                        if (section.getAttribute('data-category') === category) {
-                            section.style.display = '';
-                        } else {
+                        // Hide section with animation
+                        section.style.opacity = '0';
+                        section.style.transform = 'translateY(20px)';
+                        
+                        // Hide after animation completes
+                        setTimeout(() => {
                             section.style.display = 'none';
-                        }
+                        }, 300);
                     }
                 });
+            });
+        });
+        
+        // Initialize page - show mockup sections by default
+        document.addEventListener('DOMContentLoaded', function() {
+            const mockupSections = document.querySelectorAll('.category-section[data-category="mockup"]');
+            mockupSections.forEach(section => {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
             });
         });
     </script>
